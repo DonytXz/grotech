@@ -11,7 +11,7 @@ const ContactBtn = ({ css, txt, setData, invalid }) => {
         setData({
           mail: "",
           message: "",
-          clicked: true
+          clicked: true,
         });
       } else {
         //TODO Call toast
@@ -24,17 +24,23 @@ const ContactBtn = ({ css, txt, setData, invalid }) => {
 
   return (
     <>
-      <HashLink
-        to="#contact"
-        scroll={(el) => el.scrollIntoView({ behavior: "auto", block: "end" })}
-      >
+      {txt == "Contacto" && (
+        <HashLink
+          to="#contact"
+          className={`${css} bg-primary hover:bg-primary-light active:bg-primary-dark rounded-2xl py-2 px-4`}
+          scroll={(el) => el.scrollIntoView({ behavior: "auto", block: "end" })}
+        >
+          {txt}
+        </HashLink>
+      )}
+      {txt == "Enviar" && (
         <button
           onClick={handleBtn}
           className={`${css} bg-primary hover:bg-primary-light active:bg-primary-dark rounded-2xl py-2 px-4`}
         >
           {txt}
         </button>
-      </HashLink>
+      )}
       <ToastContainer />
     </>
   );
