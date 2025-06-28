@@ -1,0 +1,9 @@
+{
+  "data": [
+    { "text": "Renta y venta de Drones", "img": "./services/corn.png" },
+    { "text": "monitoreo de humeda", "img": "./services/tree.png" },
+    { "text": "Análisis de nutrientes", "img": "./services/avocato.png" },
+    { "text": "Monitoreo de Cima", "img": "./services/orange.png" },
+    { "text": "Predicciones de cosechas", "img": "./services/plant.png" }
+  ]
+}
