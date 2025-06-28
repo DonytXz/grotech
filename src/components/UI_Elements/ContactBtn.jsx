@@ -3,26 +3,22 @@ import { ToastContainer, toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 
-const ContactBtn = ({ css, txt, disabled = false }) => {
+const ContactBtn = ({ css, txt, setData, invalid }) => {
   const navigate = useNavigate();
   const handleBtn = (e) => {
     if (txt != "Contacto") {
-      //TODO Call toast
-      toast("Mensaje enviado correctamente", {
-        position: "bottom-right",
-      });
-    } else if (disabled) {
-      // toast.warn("Completa tus datos", {
-      //   position: "bottom-right",
-      //   autoClose: 5000,
-      //   hideProgressBar: false,
-      //   closeOnClick: false,
-      //   pauseOnHover: true,
-      //   draggable: true,
-      //   progress: undefined,
-      //   theme: "light",
-      //   transition: Bounce,
-      // });
+      if (invalid) {
+        setData({
+          mail: "",
+          message: "",
+          clicked: true
+        });
+      } else {
+        //TODO Call toast
+        toast("Mensaje enviado correctamente", {
+          position: "bottom-right",
+        });
+      }
     }
   };
 
@@ -33,11 +29,8 @@ const ContactBtn = ({ css, txt, disabled = false }) => {
         scroll={(el) => el.scrollIntoView({ behavior: "auto", block: "end" })}
       >
         <button
-          disabled={disabled}
           onClick={handleBtn}
-          className={`${css} ${
-            disabled ? "" : "bg-gray-500"
-          } bg-primary hover:bg-primary-light active:bg-primary-dark rounded-2xl py-2 px-4`}
+          className={`${css} bg-primary hover:bg-primary-light active:bg-primary-dark rounded-2xl py-2 px-4`}
         >
           {txt}
         </button>

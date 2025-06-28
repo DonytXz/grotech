@@ -5,6 +5,7 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     mail: "",
     message: "",
+    clicked: false,
   });
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -39,6 +40,9 @@ const Contact = () => {
                   }
                   value={formData.mail}
                 />
+                {formData.mail == "" && formData.clicked && (
+                  <p className="text-red-500">Este campo es obligatorio</p>
+                )}
               </div>
               <div className="flex flex-col">
                 <label className="p-2 text-[#2D5605]" htmlFor="">
@@ -51,14 +55,16 @@ const Contact = () => {
                     setFormData({ ...formData, message: e.target.value })
                   }
                   value={formData.message}
-                >
-                  asd
-                </textarea>
+                ></textarea>
+                {formData.message == "" && formData.clicked && (
+                  <p className="text-red-500">Este campo es obligatorio</p>
+                )}
               </div>
             </div>
             <div className="pt-4">
               <ContactBtn
-                disabled={formData.mail == "" && formData.message == ""}
+                invalid={formData.mail == "" || formData.message == ""}
+                setData={setFormData}
                 css={""}
                 txt={"Enviar"}
               />
