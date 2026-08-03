@@ -1,16 +1,22 @@
-# React + Vite
+# GROTECH
 
-npm install
+Landing page built with React 19, Vite 8, and Tailwind CSS 4.
 
+## Local development
+
+Requires Node.js 22.12 or newer.
+
+```bash
+npm ci
 npm run dev
+```
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Run all checks before committing:
 
-Currently, two official plugins are available:
+```bash
+npm run check
+```
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Deployment
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Pushes to `main` are built and deployed automatically by the GitHub Pages workflow. In the repository settings, set **Pages → Build and deployment → Source** to **GitHub Actions**.

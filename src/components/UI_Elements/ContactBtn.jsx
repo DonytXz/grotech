@@ -1,11 +1,8 @@
 import React from "react";
 import { ToastContainer, toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
-import { HashLink } from "react-router-hash-link";
 
 const ContactBtn = ({ css, txt, setData, invalid }) => {
-  const navigate = useNavigate();
-  const handleBtn = (e) => {
+  const handleBtn = () => {
     if (txt != "Contacto") {
       if (invalid) {
         setData({
@@ -25,13 +22,12 @@ const ContactBtn = ({ css, txt, setData, invalid }) => {
   return (
     <>
       {txt == "Contacto" && (
-        <HashLink
-          to="#contact"
+        <a
+          href="#contact"
           className={`${css} bg-primary hover:bg-primary-light active:bg-primary-dark rounded-2xl py-2 px-4`}
-          scroll={(el) => el.scrollIntoView({ behavior: "auto", block: "end" })}
         >
           {txt}
-        </HashLink>
+        </a>
       )}
       {txt == "Enviar" && (
         <button
